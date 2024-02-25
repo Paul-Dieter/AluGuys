@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - AluGuys</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Geneva, Tahoma, sans-serif, Courier, monospace;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            /* font-weight: bold; */
+        }
+
+        body {
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.0)), url(/images/background.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .navbar {
+            width: 90%;
+            height: 15%;
+            margin: auto;
+            padding: 1px 400px 1px 1px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 450px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .content {
+            width: 60%; /* Updated to 60% width */
+            margin: 100px auto 50px auto;
+            text-align: center;
+            color: rgb(255, 254, 254);
+            background: rgba(14, 89, 102, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+        }
+
+        .content h2 {
+            font-size: 50px;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        .product-section {
+            margin-bottom: 50px;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: larger;
+            
+        }
+    
+
+        .product-section h2 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .product-section img {
+            width: 400px;
+            height: auto; 
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 2px solid #035b52;
+        }
+
+        .product-section p {
+            margin: 20px auto;
+            font-weight: 100;
+            line-height: 25px;
+            text-align: center;
+            
+        }
+
+        button {
+            margin-top: 20px;
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        span {
+            background: #009688;
+            height: 100%;
+            width: 0;
+            border-radius: 40px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        button:hover span {
+            width: 100%;
+        }
+
+        button:hover {
+            border: none;
+            background-color: #009688
+        }
+        @media screen and (max-width: 1024px) {
+    .navbar {
+        height: 200px;
+        width: 100%;
+        justify-content: center; 
+    } 
+    .logo{
+    width: 100%;
+    height: auto;  
+}
+    .navbar ul {
+        display: none; 
+        text-align: center;
+    }
+    .navbar ul li {
+        margin: 10px 0; /* Stack menu items vertically */
+    }
+
+
+h1{
+    
+    font-size: 30px;
+    
+}
+.banner .content{
+    width: 80%;
+    height: auto;
+}
+.nav-icon {
+        display: block; /* Show hamburger icon on mobile */
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between; /* Adjust navbar layout */
+    }
+
+.product .product-item h3{
+    font-size: x-large;
+}
+.product .product-item p{
+    font-size: medium;
+    display: none;
+}
+.product-button{
+    max-width: 80%;
+
+}
+}
+        @media screen and (max-width: 768px) {
+            .product-section img{
+                width: 100%;
+            }
+            .content h1{
+                font-size: xx-large;
+            }
+            .content h2{
+                font-size: x-large;
+            }
+            .content p{
+                font-size: medium;
+                
+            }
+            .content ul{
+                text-align: left;
+            }
+            .logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+
+.navbar {
+        padding: 0%;
+        width: 100%;
+        justify-content: center; 
+    } 
+.nav-icon {
+        display: block; 
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+  .product-details  h3{
+        font-size: larger;
+    }
+}
+@media screen and (max-width: 576px) {
+    .product-section{
+        margin: 0;
+    }
+    button{
+        width: 100%;
+    }
+    .product-section img{
+                width: 100%;
+            }
+            .content h1{
+                font-size: xx-large;
+            }
+            .content h2{
+                font-size: x-large;
+            }
+            .content p{
+                font-size: medium;
+                
+            }
+            .content ul{
+                text-align: left;
+            }
+            .logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+
+.navbar {
+        padding: 0%;
+        width: 100%;
+        justify-content: center; 
+    } 
+.nav-icon {
+        display: block; 
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+  .product-details  h3{
+        font-size: medium;
+    }
+.product-details p {
+    font-size: small;
+}
+.product-details .product-button{
+    width: 90%;
+}
+p{
+    font-size: xx-large;
+}
+header{
+    height: 0px;
+}
+}
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="/images/logo.png" class="logo">
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/About.html">About</a></li>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+        </ul>
+    </div>
+        
+        <div class="content">
+            <h1>Scullery Doors</h1>
+
+            <div class="product-section">
+                <h2>Stable Doors</h2>
+                <!-- Add Stable Doors image here -->
+                <img src="/images/stable door.jpeg" alt="Stable Doors Image">
+                <p>
+                    Experience the charm of Stable Doors, combining traditional aesthetics with modern functionality. Key features include:
+                </p>
+                <ul>
+                    <li><strong>Classic Appeal:</strong> Enhance the character of your home with the timeless look of stable doors.</li>
+                    <li><strong>Versatile Usage:</strong> Ideal for entryways and interior spaces.</li>
+                    <li><strong>Customization Options:</strong> Choose from various finishes and sizes.</li>
+                </ul>
+                <a href="../products.html"><button>Back to Products</button></a>
+            </div>
+            
+            <div class="product-section">
+                <h2>Full Pane Doors</h2>
+                <!-- Add Full Pane Doors image here -->
+                <img src="/images/scullery.jpeg" alt="Full Pane Doors Image">
+                <p>
+                    Create a seamless connection between indoor and outdoor spaces with our Full Pane Doors. Enjoy unobstructed views and abundant natural light. Key features include:
+                </p>
+                <ul>
+                    <li><strong>Panoramic Views:</strong> Maximize your view with full glass panels.</li>
+                    <li><strong>Contemporary Design:</strong> A sleek and modern look for a stylish living space.</li>
+                    <li><strong>Energy Efficiency:</strong> Some models boast energy-efficient properties.</li>
+                </ul>
+                <a href="../products.html"><button>Back to Products</button></a>
+            </div>
+            
+            <div class="product-section">
+                <h2>2 Pane Doors</h2>
+                <!-- Add 2 Pane Doors image here -->
+                <img src="/images/2pane.jpeg" alt="2 Pane Doors Image">
+                <p>
+                    Enhance the aesthetic appeal of your home with our 2 Pane Doors. These doors offer a balance between style and functionality. Key features include:
+                </p>
+                <ul>
+                    <li><strong>Classic Design:</strong> A timeless choice that complements various architectural styles.</li>
+                    <li><strong>Durability:</strong> Crafted with precision for long-lasting performance.</li>
+                    <li><strong>Customization:</strong> Tailor the design and finishes to match your preferences.</li>
+                </ul>
+                <a href="../products.html"><button>Back to Products</button></a>
+            </div>
+            
+            <div class="product-section">
+                <h2>Horizontal Slatted Doors</h2>
+                <!-- Add Horizontal Slatted Doors image here -->
+                <img src="/images/StepwisePlanning_01.png" alt="Horizontal Slatted Doors Image">
+                <p>
+                    Bring a touch of modern sophistication to your space with our Horizontal Slatted Doors. These doors are designed to add a contemporary flair to your home. Key features include:
+                </p>
+                <ul>
+                    <li><strong>Sleek Design:</strong> Horizontal slats for a modern and stylish appearance.</li>
+                    <li><strong>Versatility:</strong> Suitable for various interior and exterior applications.</li>
+                    <li><strong>Custom Finishes:</strong> Choose from a range of finishes to suit your design vision.</li>
+                </ul>
+                <a href="../products.html"><button>Back to Products</button></a>
+            </div>
+        </div>
+</body>
+
+</html>

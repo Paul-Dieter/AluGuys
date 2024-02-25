@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - AluGuys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Geneva, Tahoma, sans-serif, Courier, monospace;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.0)), url(/images/background.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+    text-align: center;
+    padding: 20px;
+    background-color: transparent;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    font-weight: 900;
+    margin-bottom: 90px;
+    border-radius: 30px;
+    margin-top: 20px; /* Add a positive margin-top value */
+}
+
+.navbar {
+            width: 100%;
+            height: 140px;
+            margin: auto;
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0000006a;
+            
+        }
+
+        
+
+        .logo {
+            width: 450px;
+            height: auto;
+            cursor: pointer;
+           
+            
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin-right: 200px;
+            
+        }
+
+        .navbar ul li {
+            margin: 0 20px;
+            position: relative;
+            
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover::after {
+            width: 100%;
+        }
+
+        .product {
+            background-color: rgba(82, 110, 125, 0.229);
+            margin-top: 20px;
+            padding: 30px;
+            color: rgb(0, 0, 0);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            
+        }
+
+        .product-item {
+            position: relative;
+            width: calc(20% - 40px);
+            margin: 20px;
+            border: 8px solid #30899158;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            font-size: larger;
+            border-radius: 30px;
+            font-size: medium;
+        }
+
+
+        .product-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product .product-item .product-details h3{
+            font-size: x-large;
+        }
+
+        .product-item .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .product-item:hover .text-overlay {
+            opacity: 0;
+        }
+
+        .product-item .product-details {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            opacity: 0;
+            background: rgba(252, 252, 252, 0.635);
+            color: #010101;
+            transition: opacity 0.3s;
+            border-radius: 30px;
+            border: 2px solid #00000018;
+        }
+
+        .product-details h3 {
+            color: #000000;
+            font-size: 50px;
+            padding: 10px;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .product-item:hover .product-details {
+            opacity: 1;
+        }
+
+        .product-details h3,
+        .product-details p,
+        .product-details .product-button {
+            margin: 10px 0;
+        }
+
+        .product-details .product-button {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            background: transparent;
+            color: #000000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .product-details .product-button span {
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0; 
+    bottom: 0;
+    transition: width 0.5s, left 0.5s; 
+        }
+
+    .product-details .product-button:hover span {
+    width: 100%;
+    left: auto; 
+    right: 0; 
+}
+
+        .product-details .product-button:hover {
+            border: none;
+            background-color: #009688;
+        }
+        .nav-icon {
+    display: none; /* Hide by default, shown in media query below */
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.nav-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+
+.nav-toggle:checked + ul {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9); 
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
+        @media screen and (max-width: 768px) {
+            .logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+
+.navbar {
+        padding: 0%;
+        width: 100%;
+        justify-content: center; 
+    } 
+.nav-icon {
+        display: block; 
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+  .product-details  h3{
+        font-size: larger;
+    }
+}
+@media screen and (max-width: 576px) {
+            .logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+
+.navbar {
+        padding: 0%;
+        width: 100%;
+        justify-content: center; 
+    } 
+.nav-icon {
+        display: block; 
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+  .product-details  h3{
+        font-size: medium;
+    }
+.product-details p {
+    font-size: small;
+}
+.product-details .product-button{
+    width: 90%;
+}
+p{
+    font-size: xx-large;
+}
+header{
+    height: 0px;
+}
+}
+@media screen and (max-width: 1024px) {
+    .navbar {
+        height: 200px;
+        width: 100%;
+        justify-content: center; 
+    } 
+    .logo{
+    width: 80%;
+    height: auto;  
+}
+    .navbar ul {
+        display: none; 
+        text-align: center;
+    }
+    .navbar ul li {
+        margin: 10px 0; /* Stack menu items vertically */
+    }
+
+
+h1{
+    
+    font-size: 30px;
+    
+}
+.banner .content{
+    width: 80%;
+    height: auto;
+}
+.nav-icon {
+        display: block; /* Show hamburger icon on mobile */
+        color: white;
+        margin-right: 100px;
+    }
+    .navbar ul {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between; /* Adjust navbar layout */
+    }
+
+.product .product-item h3{
+    font-size: x-large;
+}
+.product .product-item p{
+    font-size: medium;
+    display: none;
+}
+.product-button{
+    max-width: 80%;
+
+}
+}
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="/images/logo.png" class="logo">
+        <label for="nav-toggle" class="nav-icon">&#9776;</label> <!-- Hamburger Icon -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </div>
+ 
+    <header>
+        <p>Discover Our Products</p>
+    </header>
+
+    <section>
+        <div class="product">
+            <div class="product-item">
+                <img src="/images/Entrance door.jpg" alt="Entrance doors">
+                <div class="text-overlay">Entrance Doors <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Entrance Doors</h3>
+                    <p>Explore striking door selections for a perfect match of aesthetics and functionality.</p>
+                    <a href="/Products/ProductPageEntranceDoors.html" class="product-button">View Options</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/foldingdoors.jpg" alt="Folding Doors">
+                <div class="text-overlay">Folding Doors <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Folding Doors</h3>
+                    <p>Discover elegance and versatility in our Folding Doors collection.</p>
+                    <a href="/Products/ProductPageFoldingeDoors.html" class="product-button">View Options</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/scullery.jpeg" alt="Scullery Doors">
+                <div class="text-overlay">Scullery Doors <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Scullery Doors</h3>
+                    <p>Timeless elegance meets modern functionality in our Scullery Doors collection.</p>
+                    <a href="/Products/ProductPageSculleryDoors.html" class="product-button">View Options</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/sliding door.jpg" alt="Sliding Doors">
+                <div class="text-overlay">Sliding Doors <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Sliding Doors</h3>
+                    <p>Explore elegant Sliding Doors for panoramic views and modern design.</p>
+                    <a href="/Products/ProductPageSlidingDoors.html" class="product-button">View Options</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/window.jpeg" alt="Aluminium windows">
+                <div class="text-overlay">Windows <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Windows</h3>
+                    <p>Classic Side Hung Windows and modern Folding Windows for seamless indoor-outdoor connectivity.
+                    </p>
+                    <a href="/Products/ProductPageWindow.html" class="product-button">View Products</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/garagedoor.jpeg" alt="garagedoor">
+                <div class="text-overlay">Garagedoors <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Garagedoors</h3>
+                    <p>Revamp your garage with modern, low-maintenance Chromadeck Doors and stylish Aluminium + Glass
+                        Doors.</p>
+                    <a href="/Products/ProductPagegarages.html" class="product-button">View Products</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/shower.jpeg" alt="shower">
+                <div class="text-overlay">Showers <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Showers</h3>
+                    <p>Revitalize your bathroom with versatile Framed, Semi-Frameless, and Frameless Showers.</p>
+                    <a href="/Products/ProductPageshowers.html" class="product-button">View Products</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/service.jpg" alt="Product 5">
+                <div class="text-overlay">Steel to Aluminium Conversion <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Steel To Aluminium Conversions</h3>
+                    <a href="/Products/ServiceSteeltoAluminium.html" class="product-button">View Service</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/glazing.jpg" alt="Glazing Certificates">
+                <div class="text-overlay">Glazing Certificates <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Glazing Certificates</h3>
+                    <p>Trust AluGuys for SGCC-certified Glazing Certificates ensuring top-tier safety and quality.</p>
+                    <a href="/Products/ServiveGlazingCertificates.html" class="product-button">View Service</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/sandblastvinyl.jpg" alt="garagedoor">
+                <div class="text-overlay">Sandblast vinyl <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Sandblast vinyl</h3>
+                    <p>Transform your space with affordable Sandblast Vinyl for stylish glass patterns.</p>
+                    <a href="/Products/servicesandblastvinyl.html" class="product-button">View Service</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/brokenglass.jpg" alt="Glass Repair">
+                <div class="text-overlay">Glass Repair <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Glass Repair</h3>
+                    <p>Trust AluGuys for expert Glass Repair and Replacement services.</p>
+                    <a href="/Products/serviceglassrepair.html" class="product-button">View Service</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <img src="/images/aluminium repair.jpeg" alt="Aluminium Repair">
+                <div class="text-overlay">Aluminium Repair <br> Learn More:</div>
+                <div class="product-details">
+                    <h3>Aluminium Repair</h3>
+                    <p>Choose AluGuys for top-notch Aluminium Repair services, restoring strength and appearance.</p>
+                    <a href="/Products/servicealuminiumrepair.html" class="product-button">View Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
