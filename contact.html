@@ -166,48 +166,50 @@
     align-items: center;
     justify-content: center;
 }
-        @media screen and (max-width: 576px) {
-            .logo{
-    width: 80%;
-    height: auto;  
-}
- .product-item {
-       width: 100%;
-       height: 300px;
- 
-}
-h1{
-    padding-top: 0px;
-    margin-top: 40px;
-    font-size: xx-large;
-}
-.navbar {
+        @media screen and (max-width: 1024px) {
+    .navbar {
         padding: 0%;
         width: 100%;
         justify-content: center; 
     } 
+    .logo{
+    width: 80%;
+    height: auto;  
+}
+    .navbar ul {
+        display: none; 
+        text-align: center;
+        font-size: 15px;
+    }
+    .navbar ul li {
+        margin: 10px 0; /* Stack menu items vertically */
+    }
+.content p {
+    font-size: x-large;
+}
+
+h1{
+    margin-top: 170px;
+    font-size: 60px;
+    
+}
+.banner .content{
+    width: 80%;
+    height: auto;
+}
 .nav-icon {
-        display: block; 
+        display: block; /* Show hamburger icon on mobile */
         color: white;
         margin-right: 100px;
     }
     .navbar ul {
         display: none;
-        font-size: 15px;
     }
     .navbar {
-        justify-content: space-between;
+        justify-content: space-between; /* Adjust navbar layout */
     }
-  .product-details  h3{
-        font-size: larger;
-    }
-    .content{
-        border-radius: 5px;
-    
-    }
-    .content p {
-        font-size: medium;
-    }
+}
+        
         @media screen and (max-width: 768px) {
     .navbar {
         padding: 0%;
@@ -252,54 +254,49 @@ h1{
         justify-content: space-between; /* Adjust navbar layout */
     }
 }
-@media screen and (max-width: 1024px) {
-    .navbar {
+        @media screen and (max-width: 576px) {
+            .logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+h1{
+    padding-top: 0px;
+    margin-top: 40px;
+    font-size: xx-large;
+}
+.navbar {
         padding: 0%;
         width: 100%;
         justify-content: center; 
     } 
-    .logo{
-    width: 80%;
-    height: auto;  
-}
-    .navbar ul {
-        display: none; 
-        text-align: center;
-        font-size: 15px;
-    }
-    .navbar ul li {
-        margin: 10px 0; /* Stack menu items vertically */
-    }
-.content p {
-    font-size: x-large;
-}
-
-h1{
-    margin-top: 170px;
-    font-size: 60px;
-    
-}
-.banner .content{
-    width: 80%;
-    height: auto;
-}
 .nav-icon {
-        display: block; /* Show hamburger icon on mobile */
+        display: block; 
         color: white;
         margin-right: 100px;
     }
     .navbar ul {
         display: none;
+        font-size: 15px;
     }
     .navbar {
-        justify-content: space-between; /* Adjust navbar layout */
+        justify-content: space-between;
     }
-}
-
-
-   
-  
-}
+  .product-details  h3{
+        font-size: larger;
+    }
+    .content{
+        border-radius: 5px;
+    
+    }
+    .content p {
+        font-size: medium;
+    }
+        }
     </style>
 </head>
 
