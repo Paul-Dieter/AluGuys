@@ -203,6 +203,46 @@
     align-items: center;
     justify-content: center;
 }
+        @media screen and (max-width: 576px) {
+.logo{
+    width: 80%;
+    height: auto;  
+}
+ .product-item {
+       width: 100%;
+       height: 300px;
+ 
+}
+
+.navbar {
+        padding: 0%;
+        width: 100%;
+        justify-content: center; 
+    } 
+    .nav-icon {
+        display: block; 
+        color: white;
+        margin-right: 30px; /* Adjusted from 100px to ensure it's within a clickable area */
+        z-index: 1000; /* Ensure it's above other content */
+        position: relative; /* Add position to effectively use z-index */
+    }
+    .navbar ul {
+        display: none;
+        font-size: 15px;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+  .product-details  h3{
+        font-size: larger;
+    }
+    .content .faq-container .question{
+        font-size: medium;
+    }
+    .content .faq-container .answer{
+        font-size: small;
+    }
+}
         @media screen and (max-width: 768px) {
     .navbar {
         padding: 0%;
@@ -216,6 +256,7 @@
     .navbar ul {
         display: none; 
         text-align: center;
+        font-size: 15px;
     }
     .navbar ul li {
         margin: 10px 0; /* Stack menu items vertically */
@@ -249,45 +290,7 @@
         justify-content: space-between; /* Adjust navbar layout */
     }
 }
-@media screen and (max-width: 576px) {
-.logo{
-    width: 80%;
-    height: auto;  
-}
- .product-item {
-       width: 100%;
-       height: 300px;
- 
-}
 
-.navbar {
-        padding: 0%;
-        width: 100%;
-        justify-content: center; 
-    } 
-    .nav-icon {
-        display: block; 
-        color: white;
-        margin-right: 30px; /* Adjusted from 100px to ensure it's within a clickable area */
-        z-index: 1000; /* Ensure it's above other content */
-        position: relative; /* Add position to effectively use z-index */
-    }
-    .navbar ul {
-        display: none;
-    }
-    .navbar {
-        justify-content: space-between;
-    }
-  .product-details  h3{
-        font-size: larger;
-    }
-    .content .faq-container .question{
-        font-size: medium;
-    }
-    .content .faq-container .answer{
-        font-size: small;
-    }
-}
 @media screen and (max-width: 1024px) {
     .navbar {
         padding: 0%;
@@ -302,6 +305,7 @@
     .navbar ul {
         display: none; 
         text-align: center;
+        font-size: 15px;
     }
     .navbar ul li {
         margin: 10px 0; /* Stack menu items vertically */
